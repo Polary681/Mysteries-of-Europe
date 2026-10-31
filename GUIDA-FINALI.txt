@@ -1,0 +1,223 @@
+MYSTERIES OF EUROPE - GUIDA A TUTTI I FINALI DELLE AVVENTURE 3D
+=================================================================
+(Ricavata direttamente dal codice delle storie, versione 9.1.
+ I testi delle scelte sono in inglese, esattamente come appaiono nel gioco.)
+
+REGOLE GENERALI
+- Ogni partita finisce con UN solo finale: per vederli tutti rigiochi l'avventura.
+  I finali trovati restano salvati ("Endings discovered" nella schermata del titolo).
+- Ogni finale sblocca la sua reliquia nell'Archivio e accende una finestra del castello.
+- Tasti: W A S D muoversi, Shift correre, E o Spazio interagire / leggere avanti,
+  1-4 (oppure clic, oppure frecce su/giu + Invio) per scegliere, J diario, Esc pausa.
+- Le scelte che dipendono da una condizione (es. "trust >= 3") compaiono SOLO se la
+  condizione e' soddisfatta: se non vedi un'opzione, ti manca qualcosa.
+- Consiglio: prima di una scelta finale importante, metti in pausa ed esci: il gioco
+  salva, e con "Continue" puoi ripartire da li' (non vale dopo un finale).
+
+
+=================================================================
+1. THE GREEN CHILDREN OF WOOLPIT (6 finali)
+=================================================================
+Contatori nascosti: trust (fiducia dei bambini), susp (sospetto del villaggio),
+know (conoscenza). Atto 1 = arrivo, Atto 2 = i giorni dopo, poi dormi nel letto
+("Rest until dawn") per passare all'Atto 3, poi siediti sulla panchina del prato
+("Sit and wait for dusk") per arrivare al tramonto e al finale.
+
+COSE UTILI PER QUASI TUTTI I FINALI
+- Atto 1, scegli DOVE vanno i bambini (decide chi ti aiutera'):
+    "To Sir Richard de Calne, at Wykes..."  -> Sir Richard dalla tua parte
+    "To Father Aldwin, at the church."      -> Padre Aldwin dalla tua parte
+    "Hide them in Edith's barn..."           -> Edith dalla tua parte (+fiducia)
+- Sfamarli: Mother Maud ti fa capire che vogliono "cose che crescono"; vai a
+  "Pick broad beans" (le fave) e dagliele TU: grande aumento di fiducia.
+- Nell'Atto 2 chiedi a Mother Maud un rimedio per il ragazzo ("The boy is weak...")
+  e daglielo (il tonico).
+- Con Father Aldwin, sul battesimo scegli "Let us wait until they can speak for
+  themselves." (NON "Baptise them soon"): il battesimo affrettato condanna il ragazzo.
+- La campanella ("Examine the handbell"): chiedila ad Aldwin, cosi' resta amico.
+- Indizi per Walter (il chierico): pozzi dei lupi, il pezzo di stoffa, le campane...
+  Con almeno 3 indizi, "condividi" con Walter: si fidera' di te.
+- Con la ragazza nell'Atto 3: "Where do you come from?" (storia completa se
+  trust >= 4), poi "The bells... do you still hear them?" (serve trust >= 3):
+  ti dice dove sente le campane (la conca oltre i pozzi dei lupi).
+
+IL RAGAZZO SOPRAVVIVE se, quando dormi alla fine dell'Atto 2:
+  gli hai dato TU le fave + gli hai dato il tonico + trust >= 3 + NESSUN battesimo affrettato.
+
+AL TRAMONTO: se il sospetto e' alto (susp >= 6) e il villaggio non e' stato calmato,
+arriva la folla. Puoi calmarla con Edith (se e' amica o ti ha promesso aiuto),
+Aldwin, Sir Richard, oppure raccontando la storia della ragazza (serve know >= 5).
+
+FINALI
+1) The Servant of Wykes  - Al finale scegli "Ask Sir Richard de Calne to take her
+   into his household." (serve Sir Richard amico) con il ragazzo NON salvato.
+2) Both Children (entrambi vivono) - Salva il ragazzo (vedi sopra), poi scegli
+   Sir Richard al finale, oppure vai alla conca delle campane e scegli "Ask her to stay."
+3) The Bells (lei torna nella sua terra) - Fatti dire dove sente le campane, poi al
+   finale "Walk with her to the hollow where she hears the bells." (trust >= 3)
+   e "Let her go toward the bells." (o "Ring the little bell..." se hai la campanella).
+4) The Font (affidata alla Chiesa) - Al finale "Ask Father Aldwin to give her a place
+   in the church's care." (serve Aldwin amico: es. mandali in chiesa nell'Atto 1).
+5) The Ink (la sua storia scritta) - Fatti amico Walter (3+ indizi condivisi) e
+   arriva a know >= 7; al finale "Tell Walter everything...".
+6) The Omen (il finale "cattivo") - Al finale "Leave her fate to the reeve and the
+   village.", oppure davanti alla folla "Say nothing.".
+
+
+=================================================================
+2. THE GHOST PIANIST OF THE ISLE OF SKYE (4 finali)
+=================================================================
+Trova le 6 "eco" della melodia (tieni premuto L per ascoltare e seguire le luci):
+  fuori: 1 molo ("Listen at the end of the pier"), 2 focolare ("Examine the hearth"),
+  3 pietra eretta, 4 grotta marina, 5 cappella;
+  dentro la casa: 6 il leggio ("Look at the music stand", serve averne 3 fuori).
+Quando attraversi la strada rialzata verso la casa con tutte e 5 le eco esterne,
+la marea la chiude: DA QUEL MOMENTO NON PUOI PIU' ANDARTENE.
+Al piano i tasti sono A S D F G H J K (o toccali); la modalita' "Guided" ti mostra
+quali premere.
+
+FINALI
+1) Leave (andarsene) - PRIMA che la marea chiuda la strada: vai alla strada di casa
+   ("Leave...") e scegli "Leave Skye tonight.". Fallo in una partita a parte.
+2) Stay (restare a suonare) - Con tutte e 6 le eco siediti al piano e suona; dopo la
+   quinta frase lei ti chiede del finale: scegli "Stay and play with her, until the
+   tide comes in."
+3) The Last Tune (peace) - Stessa domanda, scegli "Play the last phrase." e suona
+   l'ultima frase con l'ULTIMA NOTA COME SCRITTA (torna a "casa", tasto A).
+4) The Other Note - Come sopra, ma come ultimissima nota premi K (la nota alta):
+   la melodia sale invece di scendere.
+
+
+=================================================================
+3. HOIA BACIU FOREST (4 finali)
+=================================================================
+Ci sono 5 tracce nella foresta (segui le luci pallide, tieni L per alzare la lanterna).
+In tre di esse c'e' una scelta che conta:
+  - il treppiede: "Take the camera."             -> serve per "lights"
+  - la pista delle pecore: "Pick up the stick and count the notches." -> serve per "shepherd"
+  - (alberi storti, nastro rosso, punto freddo: solo atmosfera e indizi)
+La radura rotonda al centro ti lascia entrare con almeno 3 tracce.
+
+FINALI (dentro la radura)
+1) Time - "Stand in the centre and wait."
+2) Lights - "Raise the camera to the lights." (devi aver preso la macchina fotografica)
+3) Shepherd - "Follow the sheep track out of the circle." (devi aver preso il bastone)
+4) The Watching Trees (leave) - In qualsiasi momento torna al sentiero d'ingresso
+   ("Leave the forest") e scegli "Leave the forest.".
+Tip: con la macchina e il bastone in tasca puoi salvare (pausa > esci) davanti alla
+radura e rifare da li' i finali 1-3.
+
+
+=================================================================
+4. BABA YAGA (4 finali)
+=================================================================
+Percorso: la strada nel bosco (i tre cavalieri), il cancello di ossa (parla alla
+capanna), poi i lavori prima del ritorno della strega:
+  - acqua: "Draw water" al pozzo, poi versala nel barile vicino al portico;
+  - spazzare: prendi la scopa e spazza i 3 mucchi di foglie;
+  - cena: accendi la stufa e cucina (serve prima l'acqua);
+  - semi di papavero: dentro la capanna, la ciotola.
+Al ritorno, Baba Yaga ti dice di farle una domanda.
+
+FINALI
+1) Fire from the Fence (lantern) - Domanda "Who was the white horseman I met on the
+   road?", poi "That is enough...", poi "By my mother's blessing.". Ricevi il teschio:
+   riportalo a casa seguendo il sentiero fino al villaggio.
+2) Over River and Forest (flight) - Domanda "Grandmother, what are the hands that serve
+   you?" (anche dopo quella sui cavalieri). Ricevi asciugamano e pettine (dal gatto, se
+   gli hai dato la zuppa; altrimenti dalla bambola) e SCAPPA: quando lei e' vicina premi
+   E per lanciare l'asciugamano, poi il pettine. Arriva al campo aperto.
+   (Dai un po' di cena al gatto: "Give the cat some of the supper." - non e' obbligatorio.)
+3) The Mortar's Apprentice (stay) - Pulisci i semi di papavero DA SOLA
+   ("Pick the earth out yourself, grain by grain." e togli tu ogni granello di terra,
+   NON chiedere alla bambola). Poi domanda dei cavalieri, "That is enough...", e quando ti
+   chiede come hai fatto rispondi "With my own two hands." e scegli "Stay with Baba Yaga."
+4) The Birch Path (leave) - Prima di aver finito, al margine del bosco ("Go back home")
+   scegli "Go home without fire." (possibile sulla strada, al cancello o durante i lavori).
+
+
+=================================================================
+5. THE SIBYL OF THE APENNINES (4 finali)
+=================================================================
+Atto 1 (Montemonaco): parla con almeno 3 persone per poter partire dalla porta nord.
+Conviene parlare con TUTTI:
+  - Antoine de La Sale: accetta il suo taccuino ("Take the notebook.").
+  - Don Matteo: fatti benedire (la benedizione ti protegge dall'incantesimo).
+  - Nicola il pastore: la storia delle fate che devono rientrare prima dell'alba
+    (indizio "dawn") e del cesto con il neonato (indizio "basket").
+  - Vittoria: fatti legare il FILO ROSSO al polso (conta i giorni; senza non li vedi),
+    chiedile della sorella (Lucia) e mostrale la tua meta' di medaglione.
+Atto 2 (la montagna): sul prato alto le fate ballano. Atto 3 (il regno): ponte nel
+vento, porte di bronzo che sbattono (passa quando sono aperte), porta di cristallo.
+Nel regno OGNI piacere costa giorni (banchetto, ballo, dormire sulla panchina) e
+l'incanto li fa correre piu' veloci. Superato il giorno 330 non si torna piu' a casa.
+Chiedi alla portinaia del mezzo medaglione che porta al collo.
+
+FINALI
+1) The Fairies' Road (dance) - Sul prato unisciti al ballo e scegli "Forget the queen.
+   Dance until dawn.".
+2) The Return - Davanti alla regina scegli "I don't want it. I want to go home." (deve
+   ancora essere possibile: entro il giorno 330 e non troppo incantato; filo rosso o
+   benedizione aiutano). Variante migliore: se sai gia' che la portinaia e' tua madre
+   (medaglione mostrato a Vittoria + visto al collo della portinaia) scegli
+   "I think I already know. The porter is my mother.", poi "Let her come home with me."
+   e "Walk out with her as far as the door.".
+3) The Sibyl's Answer (knowledge) - "What is the price?" e paga: "Take my name." oppure
+   "Take the notebook." (se hai il taccuino di La Sale).
+4) The Kingdom Under the Mountain - "Let me stay here, with you." (oppure lascia passare
+   i 330 giorni: allora resta solo "Then tell me, and let me stay.").
+Nota: la carta "The Sibyl's Seal" si ottiene completando l'avventura davanti alla regina.
+
+
+=================================================================
+6. ELIZABETH BATHORY - THE BLOOD COUNTESS (4 finali)
+=================================================================
+Raccogli prove (documenti e testimonianze) e collegale a coppie nella "Investigation
+board" del diario (J). Il rapporto finale offre solo le conclusioni che le tue prove
+sostengono.
+
+DOVE SONO LE PROVE (19)
+ Villaggio: il segretario Lorinc Vass (lettera del Re + descrizione del Palatino),
+   Marta al mercato (sua figlia Anka), voci al mercato (bagni di sangue),
+   il vecchio Gergely al pozzo, Pavol il sagrestano (registro delle sepolture),
+   Zuzana al lavatoio (parla solo dopo che hai il registro delle sepolture o hai
+   aiutato Marta: "I am not here to accuse anyone...").
+ Castello: sala grande (cassa con le testimonianze), biblioteca (leggio: confessioni dei
+   servi; scaffale: sentenza 1611; scrittoio: registro della casa -> senti uno spiffero ->
+   "Search the bookcase": si apre il passaggio murato con il PETTINE), Ilka nella sala da
+   pranzo (il libro dei 650 + il suo racconto), magazzino (chiedi la chiave al castellano:
+   "May I have the key to the storeroom?" - te la da' se hai la lettera del Re; dentro i
+   conti col debito della Corona), le stanze della contessa (si aprono con 4 prove).
+ Dalla contessa, alla sua domanda rispondi "About whoever wrote the evidence." oppure
+   "I don't know yet.": ti da' il permesso e la chiavetta per la cassa ai piedi del letto
+   (testamento) e per la cassa di famiglia nel magazzino (accordo di famiglia).
+   La sua lettera sullo scrittoio e "What you saw yourself" sono nelle sue stanze.
+Con 10 prove e 3 collegamenti il castellano viene a chiamarti di notte: parla con la
+contessa fino alla fine, poi scrivi il rapporto alla scrivania della biblioteca.
+
+COLLEGAMENTI (le coppie giuste)
+ Accusa (acc): Testimonianze + Confessioni; Marta + Sepolture; Zuzana + Sepolture;
+               Marta + Registro della casa; Confessioni + Sentenza.
+ Politica (pol): Lettera del Re + Debito; Testamento + Accordo di famiglia;
+               Accordo di famiglia + Sentenza.
+ Dubbio (doubt): Bagni di sangue + Testimonianze; 650 + Registro della casa;
+               650 + Ilka; Descrizione del Palatino + Cio' che hai visto;
+               Pettine + Confessioni.
+ (Contesto: Lettera al marito + Gergely - non conta per i finali.)
+
+FINALI
+1) The Monster - "The accusations are substantially proven." Servono 5 prove di tipo
+   accusa (Marta, Sepolture, Zuzana, Testimonianze, Confessioni, Sentenza, Registro,
+   Pettine) e 2 collegamenti di tipo accusa.
+2) The Conspiracy - "Political and financial interests shaped the accusations."
+   Servono le 3 prove politiche (Lettera del Re, Testamento, Accordo di famiglia, Debito:
+   almeno 3) e 2 collegamenti politici.
+3) The Unanswered History - "The truth cannot be established from these records."
+   Servono almeno 8 prove in totale e 2 collegamenti di tipo dubbio.
+4) The Palatine's Version - Firma il rapporto gia' scritto: subito, dal segretario
+   ("Sign the report he has prepared, and go home." -> "Sign it."), oppure alla fine
+   ("Sign the Palatine's report as it was written for you.").
+Tip: in una sola partita puoi soddisfare tutte e tre le conclusioni; salva (pausa >
+esci) prima di scrivere il rapporto e rifai solo la scelta finale.
+Carte extra: "Her Letter to Ferenc" (trovala sulla sua scrivania), e "The Bathory Family
+Seal" scrivendo uno dei tre rapporti tuoi (non quello del Palatino).

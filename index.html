@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mysteries of Europe</title>
+<meta name="description" content="An interactive archive of the dark legends of Europe: real map, 3D globe, six 3D narrative adventures, collectible relics and 3D mini-games. Works offline.">
+<meta name="theme-color" content="#07090a">
+<script>document.documentElement.classList.add("js")</script>
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/cinematic.css">
+<link rel="stylesheet" href="css/world.css">
+<link rel="stylesheet" href="css/archivist.css">
+</head>
+<body>
+<a class="skip-link" href="#mappe">Skip to the content</a>
+<header class="nav" id="nav">
+  <a class="logo" href="#intro"><span class="mark" aria-hidden="true"></span><span>Mysteries of Europe</span></a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="menu">☰</button>
+  <nav id="menu" aria-label="Main">
+    <a href="#intro">Introduction</a>
+    <a href="#mappe">Maps</a>
+    <a href="#leggende">Legends</a>
+    <a href="#archivio">Archive</a>
+    <a href="#giochi">3D Mini-games</a>
+    <span class="snd" role="group" aria-label="Ambient sound">
+      <button class="snd-b" id="snd" type="button" aria-pressed="false" aria-label="Ambient sound: off. Press to turn on."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="w1" d="M16.5 9a4.2 4.2 0 0 1 0 6"/><path class="w2" d="M19 6.5a8 8 0 0 1 0 11"/></svg><span class="snd-t">Sound off</span></button>
+      <input id="vol" type="range" min="0" max="100" step="5" value="40" aria-label="Ambient volume">
+    </span>
+  </nav>
+</header>
+
+<main>
+<section id="intro" class="hero" aria-label="Mysteries of Europe">
+  <div class="hero-scene" aria-hidden="true">
+    <div class="hl hl-sky" data-k=".02"></div>
+    <div class="hl hl-far" data-k=".08"></div><div class="mist m1"></div>
+    <div class="hl hl-mid" data-k=".14"></div><div class="mist m2"></div>
+    <div class="hl hl-castle" data-k=".22"></div><div class="mist m3"></div>
+    <div class="hl hl-forest" data-k=".34"></div><div class="mist m4"></div>
+    <div class="hl hl-fore" data-k=".5"></div>
+    <canvas class="hero-fx"></canvas>
+    <div class="hero-vignette"></div>
+  </div>
+  <div class="hero-content">
+    <p class="hero-kicker">An archive of European folklore</p>
+    <h1 class="hero-title"><span class="w w1">Mysteries</span> <span class="w w2">of</span> <span class="w w3">Europe</span></h1>
+    <p class="hero-sub">Where the map ends, the legends begin.</p>
+    <div class="hero-cta"><a class="btn btn-primary" href="#mappe">Enter the Archive</a><a class="btn btn-ghost" href="#leggende">Discover the legends</a></div>
+  </div>
+  <button class="hero-skip" type="button" hidden>Skip intro ›</button>
+  <a class="hero-scroll" href="#prologo" aria-label="Scroll down"><span></span></a>
+</section>
+
+<section id="prologo" class="wrap prologue rv">
+  <p class="lead">Europe is a mosaic of nearly fifty countries, languages and cultures. Beneath the cathedrals and capitals, every corner hides a story nobody has ever managed to explain: children with green skin, forests where time bends, music coming from empty houses.</p>
+  <p class="lead">This is our group project: a journey through maps, branching stories and 3D games to discover the darkest side of the continent. Choose where to start.</p>
+</section>
+
+<section id="mappe" class="wrap block">
+  <p class="kicker rv">Chapter I</p>
+  <h2 class="rv">The maps</h2>
+  <p class="sub rv">A real map of Europe drawn from Natural Earth borders. Click a country, drag to move, and use + / − to zoom (or click the map, then scroll). The pale pins are our legends.</p>
+  <div class="maps">
+    <div class="panel">
+      <h3>2D Map</h3>
+      <div class="mapwrap" id="mapwrap">
+        <svg id="map" viewBox="0 0 1600 1180" role="group" aria-label="Interactive map of Europe" preserveAspectRatio="xMidYMid slice"></svg>
+        <div class="mapctl">
+          <button id="zin" aria-label="Zoom in">+</button>
+          <button id="zout" aria-label="Zoom out">−</button>
+          <button id="zrst" aria-label="Reset view">⟲</button>
+        </div>
+        <div class="tip" id="tip" role="status"></div>
+        <noscript><p class="note">JavaScript is needed for the interactive map.</p></noscript>
+      </div>
+      <div class="legendkey"><span><i class="k k1"></i> Project country</span><span><i class="k k2"></i> Other European country</span><span><i class="k k3"></i> Legend pin</span><span><i class="k k4"></i> Legend completed</span></div>
+    </div>
+    <div class="side">
+      <div class="panel">
+        <h3>Country</h3>
+        <div class="preview" id="preview" aria-live="polite">Select a country on the map.</div>
+      </div>
+      <div class="panel">
+        <h3>3D Globe</h3>
+        <div class="globe" id="globe" aria-label="3D globe, drag to rotate"></div>
+        <p class="note">Drag to spin; click it, then scroll to zoom. Works offline. <a class="ext" href="https://www.google.com/maps/@50,10,4z/data=!3m1!1e3" target="_blank" rel="noopener">Satellite view (online)</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="leggende" class="wrap block">
+  <p class="kicker rv">Chapter II</p>
+  <h2 class="rv">European legends</h2>
+  <p class="sub rv">Choose a legend. Each one is a full 3D narrative adventure with real choices and several endings, and each also has a short text version.</p>
+  <div class="cards" id="cards"></div>
+</section>
+
+<section id="archivio" class="wrap block">
+  <p class="kicker rv">Chapter III</p>
+  <h2 class="rv">The Archive</h2>
+  <p class="sub rv">Every legend leaves something behind. Finish the adventures, reach their endings and the relics you recover are kept here. Sealed cards stay hidden until you earn them. Your collection is saved in this browser.</p>
+  <div class="arch-head rv"><p class="arch-count"><b id="arch-n">0</b> / <span id="arch-t">24</span> cards recovered <span class="arch-r" id="arch-r"></span></p><div class="arch-bar" role="presentation"><i></i></div></div>
+  <div id="archive-grid" aria-live="polite"><noscript><p class="note">JavaScript is needed for the Archive.</p></noscript></div>
+  <div id="journal" class="arch-journal rv" aria-live="polite"></div>
+</section>
+
+<section id="giochi" class="wrap block">
+  <p class="kicker rv">Chapter IV</p>
+  <h2 class="rv">3D mini-games</h2>
+  <p class="sub rv">Four real-time 3D games, running right in your browser: no installation, no internet needed.</p>
+  <div class="tabs" role="tablist" id="tabs">
+    <button role="tab" data-g="runner" aria-selected="true">Legend Runner</button>
+    <button role="tab" data-g="letters" aria-selected="false">Spell the Spirit</button>
+    <button role="tab" data-g="map3d" aria-selected="false">Capital Express 3D</button>
+    <button role="tab" data-g="forest" aria-selected="false">Hoia Baciu Lantern</button>
+  </div>
+  <div class="arcade3d">
+    <div class="stage3d" id="stage3d"></div>
+    <div class="gbar">
+      <span id="ghelp"></span>
+      <span class="gbtns"><button class="ghost" id="gmute" aria-pressed="false">🔊 Sound on</button><button class="ghost" id="gfull">⛶ Fullscreen</button></span>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <p>School project created by: <strong>[Space for our names]</strong></p>
+  <p class="gfx"><label for="gfx">Graphics</label> <select id="gfx"><option value="auto">Auto</option><option value="high">High</option><option value="medium">Medium</option><option value="low">Low</option></select> <small>· the landing valley's level of detail (reloads the page)</small></p>
+  <p class="credits">Stars: Yale Bright Star Catalogue · Borders: <a href="https://www.naturalearthdata.com/" target="_blank" rel="noopener">Natural Earth</a> (public domain) · 3D: <a href="https://threejs.org/" target="_blank" rel="noopener">three.js</a> (MIT) · Fonts: Cinzel, Outfit &amp; Cormorant Garamond (SIL OFL)</p>
+</footer>
+
+<dialog id="story"><div class="story-box">
+  <button class="close" id="close" aria-label="Close">✕</button>
+  <div class="st-art" id="st-art" aria-hidden="true"></div>
+  <p class="st-kicker" id="st-kicker"></p>
+  <h3 id="st-title"></h3>
+  <p id="st-text"></p>
+  <div id="st-choices" class="choices"></div>
+</div></dialog>
+
+<div class="adv" id="adv" hidden role="dialog" aria-modal="true" aria-label="3D adventure"></div>
+
+<script src="js/data.js"></script>
+<script src="js/geo-data.js"></script>
+<script src="js/bundle.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>

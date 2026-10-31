@@ -1,0 +1,168 @@
+/* Mysteries of Europe v5 — the living valley (lantern, sky caption), the page sky, and the cinematic navigation.
+   Palette and type come from style.css / cinematic.css. */
+
+/* =====================================================================  LANDING: lantern, caption  */
+/* the lake sits low in the picture now: the fade into the page starts later */
+.hero.gl .hero-vignette{background:radial-gradient(ellipse at 62% 46%,transparent 40%,rgba(2,4,5,.66) 100%),linear-gradient(180deg,rgba(4,7,10,.6),transparent 22%,transparent 91%,var(--bg) 100%)}
+.hero.has-lantern,.hero.has-lantern .hero-scene{cursor:none}
+.hero.has-lantern :is(a,button,input,select){cursor:pointer}
+.lantern{position:fixed;left:0;top:0;z-index:60;pointer-events:none;opacity:0;will-change:transform;transition:opacity .25s}
+.lantern-body{position:absolute;left:-13px;top:-27px;display:block;transform-origin:13px 2px;transform:rotate(var(--sw,0deg));filter:drop-shadow(0 0 6px rgba(255,170,80,.55))}
+.lantern-body svg{display:block}
+.lantern-glow{position:absolute;left:-60px;top:-62px;width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,rgba(255,184,96,.22),rgba(255,140,60,.07) 40%,transparent 70%);mix-blend-mode:screen}
+.lantern.over-ui .lantern-body{opacity:.55;transform:rotate(var(--sw,0deg)) scale(.85)}
+.lantern.over-ui .lantern-glow{opacity:.4}
+@media (hover:none){.lantern-body{opacity:.85}}
+.hero-almanac{position:absolute;right:clamp(1rem,3vw,2.4rem);bottom:clamp(.9rem,2.4vh,1.6rem);z-index:3;max-width:min(560px,70vw);margin:0;font:400 .72rem/1.4 Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:rgba(217,214,200,.55);text-align:right;opacity:0;transition:opacity 1.2s,color .6s;pointer-events:auto;cursor:help}
+.hero-almanac.on{opacity:1}
+.hero-almanac.magic{color:#a9e8da;text-shadow:0 0 12px rgba(127,232,208,.45)}
+.hero-almanac.finale{color:var(--ivory,#e9e1cb);text-shadow:0 0 16px rgba(255,220,160,.5);font-size:.8rem}
+@media (max-width:700px){.hero-almanac{left:1rem;right:1rem;max-width:none;text-align:center;bottom:.6rem;font-size:.62rem}}
+
+/* =====================================================================  THE PAGE SKY (behind every section)  */
+.page-sky{position:fixed;inset:0;z-index:-2;width:100vw;height:100vh;pointer-events:none;opacity:0;transition:opacity 1.4s ease}
+.page-sky.on{opacity:1}
+/* the legend constellations: a quiet hint on each legend card, and the focus mode while one is shown */
+.cards.sky-focus .legend-card:not(.sky-on){opacity:.42;filter:saturate(.6);transition:opacity .5s,filter .5s}
+.cards .legend-card{transition:opacity .5s,filter .5s,transform .45s cubic-bezier(.2,.7,.2,1)}
+.cf-star{position:absolute;right:1.1rem;top:3.1rem;z-index:8;width:2rem;height:2rem;display:grid;place-items:center;border-radius:50%;border:1px solid rgba(233,225,203,.25);background:rgba(7,9,10,.55);color:var(--ivory,#e9e1cb);font:600 .9rem/1 Cinzel,serif;cursor:pointer;opacity:.75;transition:opacity .25s,box-shadow .25s,border-color .25s}
+.cf-star:hover,.cf-star[aria-pressed=true]{opacity:1;border-color:var(--cc);box-shadow:0 0 14px color-mix(in srgb,var(--cc) 55%,transparent)}
+.sky-label{position:fixed;z-index:4;pointer-events:none;margin:0;transform:translate(-50%,0);font:600 .68rem/1.3 Cinzel,serif;letter-spacing:.22em;text-transform:uppercase;color:var(--ivory,#e9e1cb);text-shadow:0 0 10px rgba(0,0,0,.9);opacity:0;transition:opacity .6s;white-space:nowrap}
+.sky-label small{display:block;font:400 .62rem Outfit,sans-serif;letter-spacing:.16em;color:rgba(217,214,200,.6)}
+.sky-label.on{opacity:1}
+
+/* =====================================================================  CINEMATIC NAVIGATION  */
+html.nav-busy{scroll-behavior:auto!important}
+/* the landing scene can leave its section and fill the screen during a journey */
+.hero.flying .hero-scene{position:fixed;inset:0;z-index:90;width:100vw;height:100vh}
+.hero.flying .hero-content,.hero.flying .hero-scroll,.hero.flying .hero-almanac,.hero.flying .hero-skip{opacity:0;transition:opacity .5s}
+.hero.flying .hero-vignette{opacity:.4}
+.hero-scene{transition:opacity .7s ease}
+.hero.flying.fade-out .hero-scene{opacity:0}
+body.nav-journey .nav{opacity:0;pointer-events:none;transition:opacity .5s}
+.nav{transition:opacity .5s,background .3s}
+
+/* a veil of mist and a chapter title between sections */
+.passage{position:fixed;inset:0;z-index:95;pointer-events:none;overflow:hidden;--cc:#b4c9a8}
+.passage .ps-fog{position:absolute;left:-10%;right:-10%;height:170%;top:100%;background:
+  radial-gradient(ellipse 60% 22% at 30% 50%,rgba(150,166,160,.22),transparent 70%),radial-gradient(ellipse 55% 20% at 72% 46%,rgba(150,166,160,.18),transparent 70%),
+  linear-gradient(180deg,transparent 0,rgba(9,12,13,.9) 18%,#07090a 34%,#07090a 66%,rgba(9,12,13,.9) 82%,transparent 100%);will-change:transform}
+.passage.up .ps-fog{top:auto;bottom:100%}
+.passage .ps-card{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;opacity:0;min-width:min(520px,86vw)}
+.ps-card .ps-k{margin:0 0 .5rem;font:600 .74rem Cinzel,serif;letter-spacing:.5em;text-transform:uppercase;color:var(--cc)}
+.ps-card .ps-t{margin:0;font:600 clamp(1.8rem,4.6vw,3.2rem)/1.05 "Cormorant Garamond",Cinzel,serif;color:var(--ivory,#e9e1cb);letter-spacing:.04em}
+.ps-card .ps-line{display:block;height:1px;width:0;margin:1rem auto 0;background:linear-gradient(90deg,transparent,var(--cc),transparent)}
+.ps-motes{position:absolute;inset:0}
+.ps-motes i{position:absolute;width:2px;height:2px;border-radius:50%;background:#dfe9df;opacity:0}
+main.arriving section{transform-origin:50% 0}
+
+/* the portal: a legend opens from the place you clicked (map pin, card art) */
+.portal{position:fixed;inset:0;z-index:96;pointer-events:none;--cc:#b4c9a8;background:#07090a}
+.portal .pt-art{position:absolute;inset:-4%;opacity:.95}
+.portal .pt-art svg{width:100%;height:100%;display:block}
+.portal .pt-shade{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 55%,transparent 20%,rgba(4,6,7,.82) 100%),linear-gradient(180deg,rgba(4,6,7,.4),transparent 40%,rgba(4,6,7,.75))}
+.portal .pt-ring{position:absolute;left:var(--ox,50%);top:var(--oy,50%);width:0;height:0;border-radius:50%;transform:translate(-50%,-50%);box-shadow:0 0 0 1px color-mix(in srgb,var(--cc) 70%,transparent),0 0 40px 8px color-mix(in srgb,var(--cc) 40%,transparent)}
+.portal .pt-title{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);text-align:center;width:min(640px,88vw);opacity:0}
+.pt-title p{margin:0}.pt-title .pt-k{font:600 .72rem Cinzel,serif;letter-spacing:.42em;text-transform:uppercase;color:var(--cc)}
+.pt-title .pt-t{margin:.45rem 0 .3rem;font:600 clamp(1.9rem,5vw,3.4rem)/1.05 "Cormorant Garamond",Cinzel,serif;color:var(--ivory,#e9e1cb);text-shadow:0 2px 24px #000}
+.pt-title .pt-s{font:italic 400 1.05rem "Cormorant Garamond",serif;color:rgba(217,214,200,.75)}
+.pt-busy{position:absolute;left:50%;bottom:12vh;transform:translateX(-50%);font:400 .7rem Outfit,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:rgba(217,214,200,.6);opacity:0;transition:opacity .4s}
+.pt-busy::before{content:"";display:inline-block;width:.55rem;height:.55rem;margin-right:.6rem;border-radius:50%;background:var(--cc);box-shadow:0 0 10px var(--cc);animation:ptPulse 1.1s ease-in-out infinite;vertical-align:middle}
+.portal.busy .pt-busy{opacity:1}
+@keyframes ptPulse{0%,100%{opacity:.25;transform:scale(.7)}50%{opacity:1;transform:scale(1)}}
+
+/* the map flight: the world folds into the 2D map */
+.flight-map{position:fixed;z-index:94;pointer-events:none;overflow:hidden;background:#0a0f10;border-radius:0;transform-origin:0 0}
+.flight-map svg{display:block;width:100%;height:100%}
+.flight-skip{position:fixed;right:1.2rem;bottom:1.2rem;z-index:99;pointer-events:auto;opacity:0;transition:opacity .4s;background:rgba(7,9,10,.55);border:1px solid rgba(233,225,203,.25);color:var(--ivory,#e9e1cb);font:600 .7rem Cinzel,serif;letter-spacing:.24em;text-transform:uppercase;padding:.55rem .9rem;border-radius:3px;cursor:pointer}
+.flight-skip.on{opacity:.8}.flight-skip:hover{opacity:1}
+
+/* the valley on the 2D map: where the castle stands */
+:is(#map,.map-clone) .home{cursor:pointer}
+:is(#map,.map-clone) .home path{fill:#e9e1cb;stroke:#0a0f10;stroke-width:1.2;transform:scale(var(--u,1));transform-box:fill-box;transform-origin:50% 100%;filter:drop-shadow(0 0 3px rgba(255,214,150,.6))}
+:is(#map,.map-clone) .home .halo{fill:none;stroke:rgba(255,214,150,.45);stroke-width:1.2;transform:scale(var(--u,1));transform-box:fill-box;transform-origin:center;animation:pulse 3s ease-out infinite}
+
+/* the card that flies into the inspector, and back to its place */
+.flying-card{position:fixed;z-index:120;pointer-events:none;margin:0;transform-origin:0 0;will-change:transform}
+.flying-card .cf-frame{box-shadow:0 30px 80px -20px #000,0 0 40px -8px var(--cc)}
+dialog.inspect.flip-in .ins-card{opacity:0}
+dialog.inspect.flip-in .ins-info{opacity:0;transform:translateY(10px)}
+dialog.inspect .ins-info{transition:opacity .45s .12s,transform .45s .12s}
+
+@media (prefers-reduced-motion:reduce){
+  .lantern-body{transform:none}
+  .passage .ps-fog,.portal .pt-ring{display:none}
+}
+body.adv-open .page-sky,body.adv-open .sky-label,body.adv-open .lantern{display:none}
+footer .gfx{font-size:.8rem;color:var(--mut)}footer .gfx select{background:#0e1213;color:var(--txt);border:1px solid var(--line);border-radius:4px;padding:.15rem .4rem;font:inherit}
+
+/* ---- the caption opens the sky chart ---- */
+.hero-almanac{cursor:pointer;pointer-events:auto}
+.hero-almanac.on:hover,.hero-almanac:focus-visible{color:rgba(233,225,203,.9)}
+.hero-almanac.on::after{content:" ✦";opacity:.55}
+dialog.skychart{width:min(980px,94vw);max-height:92vh;padding:0;border:1px solid rgba(233,225,203,.16);border-radius:8px;background:#070a0d;color:#d9d6c8;box-shadow:0 30px 80px rgba(0,0,0,.7);overflow:auto}
+dialog.skychart::backdrop{background:rgba(2,3,5,.72);backdrop-filter:blur(3px)}
+.sc-box{position:relative;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:1.4rem;padding:1.4rem 1.6rem 1.5rem}
+.sc-x{position:absolute;top:.6rem;right:.7rem;width:2.2rem;height:2.2rem;border-radius:50%;border:1px solid rgba(233,225,203,.2);background:transparent;color:#e9e1cb;cursor:pointer;font-size:.9rem}
+.sc-chart svg{width:100%;height:auto;display:block}
+.sc-sky{fill:#0b1119;stroke:rgba(233,225,203,.22);stroke-width:1}.sc-alt{fill:none;stroke:rgba(233,225,203,.08);stroke-dasharray:2 4}.sc-zen{fill:rgba(233,225,203,.35)}
+.sc-name{font:500 8.5px Outfit,sans-serif;letter-spacing:.06em;fill:rgba(233,225,203,.72)}.sc-mn{fill:#efe6c8}
+.sc-moon{fill:#ecebe0;filter:drop-shadow(0 0 6px rgba(236,235,224,.7))}
+.sc-card{font:700 11px Cinzel,serif;fill:rgba(217,214,200,.55);text-anchor:middle}.sc-card.n{fill:#d6c07e}
+.sc-legend,.sc-note{font-size:.74rem;line-height:1.5;color:#9aa29c;margin:.6rem 0 0}
+.sc-info h3{font:700 1.3rem Cinzel,serif;color:#e9e1cb;margin:.2rem 0 .4rem}.sc-info h4{font:700 .8rem Cinzel,serif;letter-spacing:.08em;color:#e9e1cb;margin:1.1rem 0 .4rem}
+.sc-when,.sc-moonp{margin:.15rem 0;font-size:.86rem;color:#cfcab8}
+.sc-times,.sc-stars{list-style:none;margin:.6rem 0 0;padding:0;display:grid;gap:.25rem;font-size:.9rem}
+.sc-times b{display:inline-block;min-width:6.4rem;font-weight:600;color:#d6c07e}.sc-stars small,.sc-times small{color:#9aa29c}
+@media (max-width:760px){.sc-box{grid-template-columns:1fr;padding:1rem}}
+.hero-tilt{position:absolute;left:1rem;bottom:2.6rem;z-index:3;padding:.45rem .8rem;border-radius:99px;border:1px solid rgba(233,225,203,.28);background:rgba(6,8,10,.55);color:rgba(233,225,203,.8);font:600 .64rem Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer}
+.hero-tilt[aria-pressed=true]{border-color:rgba(255,190,110,.6);color:#ffd7a0}
+.hero:not(.ready) .hero-tilt,.hero.flying .hero-tilt{opacity:0;pointer-events:none}
+.hero-postcard{position:absolute;left:clamp(1rem,3vw,2.4rem);bottom:clamp(.9rem,2.4vh,1.6rem);z-index:3;padding:.4rem .85rem;border-radius:99px;border:1px solid rgba(233,225,203,.24);background:rgba(6,8,10,.5);color:rgba(217,214,200,.7);font:600 .64rem Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(4px);transition:color .2s,border-color .2s,opacity .4s}
+.hero-postcard:hover,.hero-postcard:focus-visible{color:var(--ivory,#e9e1cb);border-color:rgba(233,225,203,.5)}.hero-postcard:disabled{opacity:.5;cursor:progress}
+.hero:not(.ready) .hero-postcard,.hero.flying .hero-postcard{opacity:0;pointer-events:none}
+.hero-tilt{bottom:calc(clamp(.9rem,2.4vh,1.6rem) + 2.4rem)}
+@media (max-width:700px){.hero-almanac{bottom:2.8rem}.hero-postcard{left:1rem;bottom:.7rem}.hero-tilt{left:auto;right:1rem;bottom:.7rem}}
+/* ---- guided tour ---- */
+.hero-tour{display:block;margin:1.1rem 0 0;padding:.3rem 0;border:0;background:none;color:rgba(217,214,200,.62);font:600 .7rem Outfit,sans-serif;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;transition:color .2s}
+.hero-tour:hover,.hero-tour:focus-visible{color:var(--ivory,#e9e1cb)}
+.hero:not(.ready) .hero-tour{opacity:0;pointer-events:none}
+.tour-cap{position:fixed;left:50%;bottom:clamp(1.2rem,5vh,3rem);translate:-50% 12px;z-index:900;width:min(720px,92vw);padding:1rem 1.4rem 1.1rem;border-radius:6px;border:1px solid rgba(233,225,203,.2);background:rgba(5,7,9,.78);backdrop-filter:blur(8px);text-align:center;opacity:0;transition:opacity .6s,translate .6s;pointer-events:none}
+.tour-cap.on{opacity:1;translate:-50% 0}.tour-cap.out{opacity:0;transition:opacity .4s}
+.tour-cap p{margin:.35rem 0 .45rem;font:400 1.35rem/1.4 var(--serif,Georgia,serif);font-style:italic;color:#ece6d2}
+.tour-cap .tour-k{font:600 .62rem Outfit,sans-serif;letter-spacing:.24em;text-transform:uppercase;color:#d6c07e}
+.tour-cap small{font-size:.66rem;letter-spacing:.1em;color:#9aa29c}
+.tour-bar{display:block;height:2px;margin-top:.7rem;background:rgba(233,225,203,.12);border-radius:2px;overflow:hidden}.tour-bar u{display:block;height:100%;width:0;background:rgba(214,192,126,.7)}
+html.touring .lantern{opacity:0!important}
+@media (prefers-reduced-motion:reduce){.tour-cap{transition:none}}
+/* ---- v9.1: the small tools at the bottom left, and LOOKING UP at tonight's real sky ---- */
+.hero-tools{position:absolute;left:clamp(1rem,3vw,2.4rem);bottom:clamp(.9rem,2.4vh,1.6rem);z-index:3;display:flex;flex-wrap:wrap;gap:.5rem;align-items:center}
+.hero-tools .hero-postcard{position:static}
+.hero-gaze{padding:.4rem .85rem;border-radius:99px;border:1px solid rgba(233,225,203,.24);background:rgba(6,8,10,.5);color:rgba(217,214,200,.7);font:600 .64rem Outfit,sans-serif;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;backdrop-filter:blur(4px);transition:color .2s,border-color .2s,opacity .4s}
+.hero-gaze:hover,.hero-gaze:focus-visible{color:var(--ivory,#e9e1cb);border-color:rgba(233,225,203,.5)}
+.hero-gaze[aria-pressed="true"]{color:var(--ivory,#e9e1cb);border-color:rgba(214,192,126,.55)}
+.hero:not(.ready) .hero-gaze,.hero.flying .hero-gaze{opacity:0;pointer-events:none}
+.hero .hero-content,.hero .hero-scroll{transition:opacity .8s}
+.hero.gazing .hero-content,.hero.gazing .hero-scroll,.hero.gazing .hero-postcard,.hero.gazing .hero-tilt{opacity:0;pointer-events:none}
+.hero.gazing .lantern{opacity:0 !important}
+.hero.gazing{cursor:pointer}
+.hero-almanac.gaze{color:rgba(233,225,203,.86);max-width:min(620px,80vw)}
+.sky-marks{position:absolute;inset:0;z-index:2;pointer-events:none;overflow:hidden}
+.sky-marks .sm{position:absolute;transform:translate(12px,-50%);font:500 .66rem/1 Outfit,sans-serif;letter-spacing:.12em;color:rgba(206,220,232,.74);text-shadow:0 0 6px #000,0 0 2px #000;white-space:nowrap;animation:smIn .6s ease both}
+.sky-marks .sm::before{content:"";position:absolute;left:-10px;top:50%;width:7px;height:1px;background:currentColor;opacity:.55}
+.sky-marks .sm.moon{transform:translate(30px,-50%);color:rgba(242,234,208,.92);letter-spacing:.08em}
+.sky-marks .sm.moon::before{left:-24px;width:18px}
+@keyframes smIn{from{opacity:0}to{opacity:1}}
+@media (max-width:700px){.hero-tools{left:1rem;bottom:.7rem}}
+@media (prefers-reduced-motion:reduce){.sky-marks .sm{animation:none}}
+.sky-marks .sm.l{transform:translate(calc(-100% - 12px),-50%)}.sky-marks .sm.l::before{left:auto;right:-10px}
+.sky-marks .sm.moon.l{transform:translate(calc(-100% - 30px),-50%)}.sky-marks .sm.moon.l::before{left:auto;right:-24px}
+/* narrow phones: the postcard and the sky keep only their icons (with the tilt button the bottom row would overlap);
+   while looking up the "back" button keeps its words (the page text is hidden then) */
+@media (max-width:440px){
+  .hero-postcard .tx,.hero-gaze:not([aria-pressed="true"]) .tx{display:none}
+  .hero-postcard,.hero-gaze:not([aria-pressed="true"]){min-width:2.3rem;padding:.4rem .7rem;font-size:.8rem;letter-spacing:0}
+}
+/* the scroll cue sits at the bottom centre; below ~1220px the sky caption (bottom right, up to 560px wide) runs under it,
+   and on phones the tilt button and the caption fill the bottom row: the cue is only shown where it has room */
+@media (max-width:1220px){.hero-scroll{display:none}}

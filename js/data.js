@@ -1,0 +1,96 @@
+// Site data: [code, name, capital, column, row, fact, legends]
+const COUNTRIES = [
+["IS","Iceland","Reykjavík",1,0,"A land of volcanoes and glaciers, where many still believe in hidden elves."],
+["NO","Norway","Oslo",4,0,"Its fjords inspired myths of trolls and giants."],
+["SE","Sweden","Stockholm",5,0,"Swedish forests are full of folklore about spirits and woodland creatures."],
+["FI","Finland","Helsinki",6,0,"The land of a thousand lakes and the northern lights."],
+["IE","Ireland","Dublin",1,1,"Home of fairies, banshees and ancient burial mounds."],
+["UK","United Kingdom","London",2,1,"Castles, moors and mysteries: Woolpit and the ghost of Skye were born here.","woolpit,skye"],
+["DK","Denmark","Copenhagen",4,1,"The land of the Vikings and Andersen’s fairy tales."],
+["EE","Estonia","Tallinn",6,1,"A perfectly preserved medieval capital, with ancient sea legends."],
+["BE","Belgium","Brussels",2,2,"Small, but full of castles and witch stories."],
+["NL","Netherlands","Amsterdam",3,2,"Windmills, canals and legends of ghosts on the water."],
+["DE","Germany","Berlin",4,2,"The Brothers Grimm fairy tales were born in its forests."],
+["PL","Poland","Warsaw",5,2,"The legend of the Wawel Dragon of Kraków is among the most famous."],
+["LT","Lithuania","Vilnius",6,2,"The last pagan country in Europe, rich in ancient myths."],
+["LV","Latvia","Riga",7,2,"Riga keeps mysterious houses and tales of black cats."],
+["FR","France","Paris",2,3,"Beneath Paris run miles of catacombs."],
+["CH","Switzerland","Bern",3,3,"Stories of mountain dragons are told in the Alps."],
+["AT","Austria","Vienna",4,3,"Castles and legends of vampires and white ladies."],
+["HU","Hungary","Budapest",5,3,"Elizabeth Báthory, the “Blood Countess”, was a Hungarian noblewoman: her castle of Csejte (Čachtice) lay in the Kingdom of Hungary, in today’s Slovakia."],
+["RO","Romania","Bucharest",6,3,"Land of Transylvania and the mysterious Hoia Baciu Forest.","hoia"],
+["UA","Ukraine","Kyiv",7,3,"The land of Chernobyl and of Slavic folklore."],
+["PT","Portugal","Lisbon",0,4,"A land of sailors and ocean monsters."],
+["ES","Spain","Madrid",1,4,"From the castles of Castile to the tales of the Moors."],
+["IT","Italy","Rome",3,4,"Every region has its legends. In the Monti Sibillini of the Marche, a prophetess queen is said to live inside a mountain.","sibilla"],
+["SI","Slovenia","Ljubljana",4,4,"The city of Ljubljana is guarded by a dragon."],
+["HR","Croatia","Zagreb",5,4,"Coasts, islands and stories of Istrian vampires."],
+["RS","Serbia","Belgrade",6,4,"Many vampire stories were born in the Balkans."],
+["BG","Bulgaria","Sofia",7,4,"Land of the Thracians and their mysterious treasures."],
+["AL","Albania","Tirana",5,5,"Wild mountains and ancient codes of honor."],
+["GR","Greece","Athens",6,5,"The cradle of myths: from the Minotaur to the Gorgons."]
+];
+const LEGENDS = {
+woolpit:{title:"The Green Children of Woolpit",place:"England",emoji:"🌿",color:"#4dffb4",
+ desc:"Two children with green skin appear in a village in the 12th century.",
+ start:"a",nodes:{
+ a:{t:"Suffolk, 12th century. During the harvest, the villagers of Woolpit find two children, a boy and a girl, at the mouth of a wolf pit. They have green skin and speak an unknown language. What do you do?",c:[["Offer them food","b"],["Take them to Sir Richard de Calne","c"]]},
+ b:{t:"They refuse bread and meat. Then they spot some fresh beans and eat them eagerly, but only the raw pods. They say the brother, growing weaker, did not survive. What do you do?",c:[["Watch over the girl","d"],["Ask where they come from","c"]]},
+ c:{t:"Sir Richard welcomes them into his castle. Over time they learn English and the green color fades from their skin. Asked «where do you come from?», the girl answers…",c:[["Listen to her answer","d"]]},
+ d:{t:"She tells of a place called «Saint Martin’s Land», where there is no sun, only an eternal twilight, and where everything is green. She says she got lost while following the sound of bells. The medieval chronicles of Ralph of Coggeshall and William of Newburgh record this story: to this day nobody knows whether it was myth, a mistranslation or truth. THE END.",c:[]}}},
+hoia:{title:"The Hoia Baciu Forest",place:"Romania",emoji:"🌲",color:"#a974ff",
+ desc:"Twisted trees, lights in the sky and a clearing where nothing grows.",
+ start:"a",nodes:{
+ a:{t:"Cluj-Napoca, Transylvania. At the edge of the city lies a forest where the trees grow twisted, as if bent by an invisible hand. They say anyone who enters feels cold, hears voices and rustling. Do you go in?",c:[["Yes, with a flashlight","b"],["I stay on the path","c"]]},
+ b:{t:"The flashlight trembles. Lights appear among the trees, moving without a sound. In the 1960s a photographer took a famous picture of an alleged UFO here. What do you do?",c:[["Follow the lights","d"],["Turn back","c"]]},
+ c:{t:"The path leads you to a perfectly circular clearing where nothing grows, not even grass. Scientists have suggested explanations about the soil, but the legend says lost souls rest there. What do you do?",c:[["Step into the circle","d"],["Leave the forest","e"]]},
+ d:{t:"Time bends: your watch shows different hours, and fog wraps around you. Some tell of a girl who vanished in the forest and reappeared five years later with no memory. Luckily you find your way out at dawn. THE END.",c:[]},
+ e:{t:"You are safe. You look back: the trees seem to be watching you. Hoia Baciu is one of the most «haunted» places in the world and still fascinates researchers and tourists alike. THE END.",c:[]}}},
+skye:{title:"The Ghost Pianist of the Isle of Skye",place:"Scotland",emoji:"🎹",color:"#ff6fb5",
+ desc:"A nighttime melody drifts from an abandoned house on the cliff.",
+ start:"a",nodes:{
+ a:{t:"Isle of Skye, stormy night. On the cliff stands an abandoned house. From the broken windows comes the slow sound of a piano, yet the roof collapsed decades ago. (A tale freely inspired by Scottish folklore.) What do you do?",c:[["Approach the door","b"],["Listen from the path","c"]]},
+ b:{t:"The door creaks. Inside, a dusty piano, and the music stops abruptly. On the stool lies a handwritten score. What do you do?",c:[["Read it","d"],["Run outside","e"]]},
+ c:{t:"The melody grows clearer: it is a Gaelic lullaby. The locals say it is a musician lost at sea who returns every night to play for those who never came home. What do you do?",c:[["Go in and look for him","b"],["Stay and listen","e"]]},
+ d:{t:"On the score, a single line: «Play for me until the tide comes in». You place your hands on the keys and the melody returns on its own, until the light of dawn dissolves the room. THE END.",c:[]},
+ e:{t:"You walk away into the wind. Behind you the music starts again, softer, like a farewell. They say whoever hears it to the last note is never afraid of the sea again. THE END.",c:[]}}},
+babayaga:{title:"Baba Yaga’s Hut",place:"Russia",emoji:"🐓",color:"#e39a3b",
+ desc:"A hut on chicken legs, a fence of skulls with burning eyes, and the witch who flies in a mortar.",
+ start:"a",nodes:{
+ a:{t:"A village at the edge of a great Russian forest. Your stepmother has let every fire in the house go out, and sends you to Baba Yaga for a light. In your pocket is the little doll your mother left you. What do you do?",c:[["Go into the forest","b"],["Ask the doll first","c"]]},
+ b:{t:"On the way a white horseman gallops past, and day breaks; then a red one, and the sun rises; at dusk a black one, and night falls. Before you stands a hut on chicken legs inside a fence of bones, and the eyes of the skulls are glowing. What do you say?",c:[["«Little hut, turn your back to the forest and your front to me!»","d"],["Nothing: I run home","e"]]},
+ c:{t:"The doll whispers: «Do not be afraid. Feed me, and I will help you.» You give her a crumb of bread and step into the forest.",c:[["Walk on","b"]]},
+ d:{t:"The hut turns round, and Baba Yaga flies in on her mortar. «Work for me, and you shall have fire.» The doll helps with every task. Asked how she managed, the girl answers «by my mother’s blessing», and the witch, who wants no blessed ones in her house, sends her home with a skull whose eyes burn like fire. (From the Russian tale «Vasilisa the Beautiful», collected by Alexander Afanasyev.) THE END.",c:[]},
+ e:{t:"You run back between the birches without fire, and the doll guides you home through the dark. Some stories are better heard than lived. THE END.",c:[]}}},
+sibilla:{title:"The Sibyl of the Apennines",place:"Italy",emoji:"👑",color:"#c9a0dc",
+ desc:"A prophetess queen inside a mountain of the Marche, her fairies who dance with shepherds, and a kingdom where days run away.",
+ start:"a",nodes:{
+ a:{t:"Montemonaco, in the Marche, May 1420. Above the village rises Monte Sibilla, crowned with a ring of rock. They say a prophetess queen lives inside it, in a kingdom beneath the mountain, and that she knows every answer. A French gentleman, Antoine de La Sale, has come to see her cave. What do you do?",c:[["Climb the mountain at night","b"],["Listen to the old shepherd first","c"]]},
+ b:{t:"On the high meadow beautiful women are dancing the saltarello in the moonlight. As they spin, you glimpse goat’s hooves under their skirts: the Sibyl’s fairies. They hold out their hands. What do you do?",c:[["Ask them the way to the queen","d"],["Dance with them until dawn","e"]]},
+ c:{t:"«They come down at night to dance with us,» says the shepherd, «and they must be home before dawn. Under their skirts they have goat’s hooves. And whoever stays in the queen’s kingdom past the three hundred and thirtieth day stays forever.»",c:[["Climb the mountain","b"]]},
+ d:{t:"A warm wind blows out of a cave below the crown. Inside: a bridge over an abyss, bronze doors that never stop beating, a door of crystal, and beyond it a kingdom of light where the queen offers you any answer, at a price. You count your days, and walk out before the last one. (After the medieval legend told by Andrea da Barberino in «Il Guerrin Meschino» and by Antoine de La Sale.) THE END.",c:[]},
+ e:{t:"You dance until the sky pales. The fairies scream and run up the mountain so fast that their hooves cut a road across the rock of Monte Vettore: the shepherds still call it the Fairies’ Road. You never find the cave. THE END.",c:[]}}},
+bathory:{title:"Elizabeth Báthory — The Blood Countess",place:"Slovakia",mapLabel:"Čachtice, Slovakia (then Kingdom of Hungary)",emoji:"🕯️",color:"#8a2a3a",
+ desc:"A Hungarian countess walled up in her own castle, hundreds of accusations — and a legend of blood that historians still argue about.",
+ start:"a",nodes:{
+ a:{t:"Čachtice (Csejte), in the Kingdom of Hungary, July 1614. On the hill above the village stands the castle where Countess Elizabeth Báthory has been confined since the night of 29 December 1610. She was never tried. You are a clerk sent to write a report. What do you do?",c:[["Listen to the village first","b"],["Climb straight to the castle","c"]]},
+ b:{t:"A washerwoman tells you her daughter went into service at the castle and never came back. The sexton shows you a burial register with gaps in it. A peasant mutters that the Palatine wants the countess’s lands. Everyone has a story; few saw anything themselves.",c:[["Climb to the castle","c"]]},
+ c:{t:"In the castle you find the record of the 1611 trial of her servants, whose confessions were taken under torture, and a letter from the King, who owed her family a great debt and wanted her tried. Then she receives you: an educated widow of fifty-three, sharp and proud, who says she is the victim of a plot. What do you write?",c:[["That the accusations are true","d"],["That it was a political plot","e"],["That the truth cannot be established","f"]]},
+ d:{t:"You write that so many witnesses cannot all be lying. Your report is filed. A century later others add the blood baths and the 650 victims, and the legend no longer needs any report. (The baths first appear in print in 1729; the 650 rest on one servant’s report of a book nobody produced.) THE END.",c:[]},
+ e:{t:"You write that the Palatine and the Crown had every reason to want her silenced and her lands kept. Historians like László Nagy would argue the same, centuries later; most others still think the testimonies too many to dismiss. THE END.",c:[]},
+ f:{t:"You write that hearsay, confessions under torture and political interest leave the truth out of reach. The countess dies in her rooms on 21 August 1614. What is certain is only that she was accused, confined, and never heard by a court. THE END.",c:[]}}}
+};
+/* legends that belong to a country outside the project's list (shown on the map and in its panel) */
+const EXTRA_LEGENDS = { RU: { legends: "babayaga", note: "Endless birch and pine forests, and the fairy tales of Baba Yaga, told across the East Slavic lands." },
+  SK: { legends: "bathory", note: "In 1614 this was Upper Hungary, part of the Kingdom of Hungary. The ruined castle of Čachtice (Csejte) stands on a hill above the village where Countess Elizabeth Báthory was confined." } };
+const QUIZ = [
+["Which children were found near a wolf pit?",["The children of Hamelin","The Green Children of Woolpit","The twins of Skye"],1],
+["In which country is the Hoia Baciu forest?",["Romania","Scotland","England"],0],
+["What is said to be heard in the abandoned house on the Isle of Skye?",["A violin","A piano","A harp"],1],
+["What was the land the green children said they came from?",["Saint Martin’s Land","Isle of the Greens","Valley of Bells"],0],
+["What lies at the heart of Hoia Baciu?",["A frozen lake","A circular clearing with no vegetation","A castle"],1],
+["What does Baba Yaga’s hut stand on?",["Stilts of birch wood","Chicken legs","A giant tortoise"],1],
+["In the legend, what do the Sibyl’s fairies hide under their long skirts?",["Golden slippers","Goat’s hooves","Fish tails"],1],
+["Elizabeth Báthory was confined in Čachtice Castle. Which kingdom was it part of in 1610?",["The Kingdom of Hungary","The Kingdom of Bohemia","The Kingdom of Poland"],0]
+];
+const WORDS = [["WOOLPIT","Village of the green children"],["TRANSYLVANIA","Region of Romania"],["GHOST","Spirit that plays on Skye"],["LEGEND","A story passed down through the centuries"],["FOREST","Hoia Baciu is a famous one"],["SCOTLAND","Where the Isle of Skye is"],["MYSTERY","What has no explanation"],["EUROPE","Our continent"],["MORTAR","What Baba Yaga flies in"],["SIBYL","The prophetess queen of the Apennines"],["CACHTICE","Village below the castle of Elizabeth Báthory (no accents)"]];

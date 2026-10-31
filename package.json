@@ -1,0 +1,29 @@
+{
+  "name": "mysteries-of-europe",
+  "version": "9.1.0",
+  "private": true,
+  "description": "Mysteries of Europe - cinematic dark-fantasy edition (offline: Natural Earth map, Three.js globe and games, six 3D narrative adventures (Woolpit, Skye, Hoia Baciu, Baba Yaga, the Sibyl of the Apennines, Elizabeth Báthory), collectible Archive, the Archivist's journal, seasons, sky chart, postcard, guided tour, a living landing valley under tonight's real sky, cinematic navigation)",
+  "scripts": {
+    "geo": "node tools/build-geo.mjs",
+    "bundle": "node tools/bundle.mjs",
+    "build": "npm run geo && npm run bundle",
+    "serve": "node tools/serve.mjs",
+    "test:story": "node tests/core.test.mjs && node tests/woolpit-story.test.mjs && node tests/skye-story.test.mjs && node tests/hoia-story.test.mjs && node tests/babayaga-story.test.mjs && node tests/sibilla-story.test.mjs && node tests/bathory-story.test.mjs",
+    "test:e2e": "node tests/e2e-woolpit.mjs && node tests/e2e-skye.mjs && node tests/e2e-mobile.mjs && node tests/e2e-archive.mjs && node tests/e2e-world.mjs && node tests/e2e-hoia.mjs && node tests/e2e-babayaga.mjs && node tests/e2e-sibilla.mjs && node tests/e2e-bathory.mjs && node tests/e2e-extras.mjs",
+    "test": "npm run test:story && npm run test:archive && npm run test:astro && npm run test:e2e",
+    "check": "node tools/check-links.mjs",
+    "test:archive": "node tests/archive.test.mjs && node tests/journal.test.mjs",
+    "test:astro": "node tests/astro.test.mjs",
+    "stars": "node tools/build-stars.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/cinzel": "^5.3.0",
+    "@fontsource/outfit": "^5.3.0",
+    "d3-geo": "^3.1.1",
+    "esbuild": "^0.28.2",
+    "three": "^0.170.0",
+    "topojson-client": "^3.1.0",
+    "world-atlas": "^2.0.2",
+    "playwright": "^1.63.0"
+  }
+}

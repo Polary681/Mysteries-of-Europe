@@ -1,0 +1,19 @@
+// Everything the classic script js/main.js needs from the new visual layer (exposed as MOE3D.ui and MOE3D.archive).
+export { initHero } from "./hero.js";
+export { initNav, initReveal, staggerIn, initSound } from "./page.js";
+export { legendCard, refreshLegendCard, archiveCard, esc } from "./cards.js";
+export { initArchive, reveal, revealOpen, inspectCard, closeInspector } from "./archive-ui.js";
+export { curtain } from "./curtain.js";
+export { sceneSVG, cardArt } from "./art.js";
+export { pause as pauseAmbient } from "./ambient.js";
+export { initPageSky, pageSky } from "./sky-ui.js";
+export { initJournal } from "./journal-ui.js";
+export { cue, state as ambientState, setEnabled as setAmbient } from "./ambient.js";
+export { setTilt, tiltState, _orient as _tiltOrient } from "../world/lantern.js";
+export { openSkyChart, chartData } from "./skychart.js";
+export { drawPostcard, downloadPostcard } from "./postcard.js";
+export { startTour, tourActive } from "./tour.js";
+export { initExtras, storyExtras, openTome } from "./extras.js";
+export { setTarget as compassTarget } from "./compass.js";
+export { initHeroQuote, nextQuote } from "./quotes.js";
+export { _meter as _ambMeter, _force as _ambForce, _render as _ambRender } from "./ambient.js";
