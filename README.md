@@ -1,5 +1,7 @@
 # Mysteries of Europe
 
+This website was mostly AI-generated. I'm not a big fan of having AI do most of the work for me, but hey, that was the assignment. :(
+
 An interactive archive of the dark legends of Europe: a real map, a 3D globe, six 3D narrative adventures, a collectible Archive, the Sibyl’s Oracle and four 3D mini-games. 100% offline.
 
 **Launch:** double-click `index.html` (or `start.bat` on Windows / `./start.sh` on macOS/Linux). No server, no internet and no install are needed. A modern browser with WebGL (Chrome, Edge, Firefox, Safari) is required.
