@@ -387,7 +387,7 @@ export function start(host, { onExit = () => {}, onText = null } = {}) {
     if (!q) { if (!holdShot) cam.clearShot(); return; }
     const portrait = stage.camera.aspect < 0.9, dx = q.x - p.x, dz = q.z - p.z, d = Math.hypot(dx, dz) || 1, ux = dx / d, uz = dz / d, rx = -uz, rz = ux, isE = who === "elizabeth", back = (isE ? 2.3 : 2.9) + (portrait ? 1.4 : 0), side = (portrait ? 2.2 : 1.5) + (isE ? 0.5 : 0);
     let pos = null;
-    for (const [b, sd] of [[back, side], [back, -side], [back * 0.55, side * 0.6], [1.1, -0.9]]) { const x = p.x - ux * b + rx * sd, z = p.z - uz * b + rz * sd; if (S.area === "inside" || segClear(p.x, p.z, x, z) >= 1) { pos = new Vector3(x, Math.max(groundH(p.x, p.z), p.y) + 1.95, z); break; } }
+    for (const [b, sd] of [[back, side], [back, -side], [back * 0.55, side * 0.6], [1.1, -0.9]]) { const x = p.x - ux * b + rx * sd, z = p.z - uz * b + rz * sd; const gy = Math.max(groundH(p.x, p.z), p.y); if (S.area === "inside" || segClear(p.x, p.z, x, z, gy + 1.95) >= 1) { pos = new Vector3(x, gy + 1.95, z); break; } }
     if (!pos) pos = new Vector3(p.x - ux * 0.6, Math.max(groundH(p.x, p.z), p.y) + 2.1, p.z - uz * 0.6);
     clampToRoom(pos);
     cam.setShot({ pos, look: new Vector3(q.x * 0.8 + p.x * 0.2, q.y + hh * 0.95, q.z * 0.8 + p.z * 0.2), fov: who === "elizabeth" ? 42 : 46 });
@@ -507,13 +507,15 @@ export function start(host, { onExit = () => {}, onText = null } = {}) {
   }
 
   /** outdoors: true where the camera must not be (inside a house, beyond the walls of the upper castle) */
-  function camBlocked(x, z) {
-    for (const b of col.b) if (b.on && x > b.x0 - 0.3 && x < b.x1 + 0.3 && z > b.z0 - 0.3 && z < b.z1 + 0.3) return true;
+  //  y: the camera's height. Obstacles lower than the camera (market stalls) don't block it: it flies over them.
+  //  Before, every box counted as an endless wall and the camera snapped onto the player's head beside a stall.
+  function camBlocked(x, z, y = -Infinity) {
+    for (const b of col.b) if (b.on && y < b.top + 0.3 && x > b.x0 - 0.3 && x < b.x1 + 0.3 && z > b.z0 - 0.3 && z < b.z1 + 0.3) return true;
     return z < -101.5 && !walkable(x, z, {});
   }
-  const segClear = (ax, az, bx, bz) => { const n = Math.max(2, Math.ceil(Math.hypot(bx - ax, bz - az) / 0.25)); for (let i = 1; i <= n; i++) if (camBlocked(ax + (bx - ax) * i / n, az + (bz - az) * i / n)) return (i - 1.5) / n; return 1; };
+  const segClear = (ax, az, bx, bz, y = -Infinity) => { const n = Math.max(2, Math.ceil(Math.hypot(bx - ax, bz - az) / 0.25)); for (let i = 1; i <= n; i++) if (camBlocked(ax + (bx - ax) * i / n, az + (bz - az) * i / n, y)) return (i - 1.5) / n; return 1; };
   function pullCam(p) {
-    const c = cam.pos, k = segClear(p.x, p.z, c.x, c.z); if (k >= 1) return;
+    const c = cam.pos, k = segClear(p.x, p.z, c.x, c.z, c.y); if (k >= 1) return;
     const f = Math.max(0.1, k); c.x = p.x + (c.x - p.x) * f; c.z = p.z + (c.z - p.z) * f; c.y = Math.max(c.y, groundH(c.x, c.z) + 0.6);
     stage.camera.position.copy(c); stage.camera.lookAt(cam.look);
   }
