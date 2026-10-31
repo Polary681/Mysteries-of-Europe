@@ -91,6 +91,24 @@ const QUIZ = [
 ["What lies at the heart of Hoia Baciu?",["A frozen lake","A circular clearing with no vegetation","A castle"],1],
 ["What does Baba Yaga’s hut stand on?",["Stilts of birch wood","Chicken legs","A giant tortoise"],1],
 ["In the legend, what do the Sibyl’s fairies hide under their long skirts?",["Golden slippers","Goat’s hooves","Fish tails"],1],
-["Elizabeth Báthory was confined in Čachtice Castle. Which kingdom was it part of in 1610?",["The Kingdom of Hungary","The Kingdom of Bohemia","The Kingdom of Poland"],0]
+["Elizabeth Báthory was confined in Čachtice Castle. Which kingdom was it part of in 1610?",["The Kingdom of Hungary","The Kingdom of Bohemia","The Kingdom of Poland"],0],
+["Which two medieval chroniclers wrote about the Green Children of Woolpit?",["William of Newburgh and Ralph of Coggeshall","Bede and Geoffrey of Monmouth","The Brothers Grimm"],0],
+["What did the green children refuse to eat at first, except for raw beans?",["Everything","Bread","Apples"],0],
+["Near which Romanian city is the Hoia Baciu forest?",["Cluj-Napoca","Bucharest","Constanța"],0],
+["In which year was the famous “UFO” photo of Hoia Baciu taken by Emil Barnea?",["1968","1922","1999"],0],
+["Who collected the Russian fairy tales of Baba Yaga between 1855 and 1863?",["Alexander Afanasyev","Leo Tolstoy","Hans Christian Andersen"],0],
+["What does Baba Yaga fly in?",["A broomstick","A mortar, steering with a pestle","A black carriage"],1],
+["In which mountain range is Monte Sibilla?",["The Alps","The Apennines (Monti Sibillini)","The Pyrenees"],1],
+["Which French writer climbed Monte Sibilla in the 15th century and described the Sibyl’s cave?",["Antoine de la Sale","Victor Hugo","Jules Verne"],0],
+["The story that Elizabeth Báthory bathed in blood first appeared…",["In her 1611 trial","More than a century later, in 1729","In a 20th-century film"],1],
+["In which castle was Elizabeth Báthory walled in until her death in 1614?",["Bran Castle","Čachtice Castle","Wawel Castle"],1],
+["How did the shoemaker Skuba defeat the Wawel Dragon of Kraków?",["With a magic sword","With a lamb’s skin stuffed with sulphur","By singing it to sleep"],1],
+["How many children followed the Pied Piper out of Hamelin, according to the old records?",["13","130","1,300"],1],
+["What do Icelanders call the “hidden people” living in rocks and hills?",["Huldufólk","Trolls","Valkyries"],0],
+["In Irish folklore, what does the cry of the banshee announce?",["A good harvest","A coming death in the family","A wedding"],1],
+["On which night do the witches gather on the Brocken, in the Harz mountains?",["Walpurgis Night (30 April)","Christmas Eve","Midsummer"],0],
+["What is a will-o’-the-wisp?",["A small forest dragon","A ghostly light over marshes","A Scottish water horse"],1],
+["What is the each-uisge of the Scottish Highlands?",["A water horse that drowns its riders","A ghost piper","A giant eagle"],0],
+["What is a strigoi in Romanian folklore?",["A troubled spirit that rises from the grave","A forest guardian","A friendly house elf"],0]
 ];
-const WORDS = [["WOOLPIT","Village of the green children"],["TRANSYLVANIA","Region of Romania"],["GHOST","Spirit that plays on Skye"],["LEGEND","A story passed down through the centuries"],["FOREST","Hoia Baciu is a famous one"],["SCOTLAND","Where the Isle of Skye is"],["MYSTERY","What has no explanation"],["EUROPE","Our continent"],["MORTAR","What Baba Yaga flies in"],["SIBYL","The prophetess queen of the Apennines"],["CACHTICE","Village below the castle of Elizabeth Báthory (no accents)"]];
+const WORDS = [["WOOLPIT","Village of the green children"],["TRANSYLVANIA","Region of Romania"],["GHOST","Spirit that plays on Skye"],["LEGEND","A story passed down through the centuries"],["FOREST","Hoia Baciu is a famous one"],["SCOTLAND","Where the Isle of Skye is"],["MYSTERY","What has no explanation"],["EUROPE","Our continent"],["MORTAR","What Baba Yaga flies in"],["SIBYL","The prophetess queen of the Apennines"],["CACHTICE","Village below the castle of Elizabeth Báthory (no accents)"],["DRAGON","What lived under Wawel Hill"],["HAMELIN","Town of the Pied Piper"],["PIPER","He played the rats away"],["BANSHEE","Her cry foretells a death"],["ELVES","Iceland’s hidden people"],["BROCKEN","Mountain of the witches"],["STRIGOI","Restless Romanian spirit"],["LESHY","Master of the Slavic forest"],["SULPHUR","What the dragon swallowed"],["APENNINES","Mountains of the Sibyl"],["ORACLE","Who reads the cards of fate"],["LANTERN","Light for a dark forest"],["CASTLE","Where the Countess was walled in"],["WISP","A false light over the marsh"],["PIANO","What plays in the empty house on Skye"]];

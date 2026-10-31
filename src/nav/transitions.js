@@ -22,7 +22,7 @@ import { nextQuote } from "../ui/quotes.js";
 const $ = (s, r = document) => r.querySelector(s);
 const el = (tag, cls, html = "") => { const e = document.createElement(tag); if (cls) e.className = cls; if (html) e.innerHTML = html; return e; };
 const esc = s => String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-const SECTION_COLOR = { intro: "#b4c9a8", prologo: "#b4c9a8", mappe: "#9cba84", leggende: "#a08ac0", archivio: "#c9b27a", giochi: "#93b6cb" };
+const SECTION_COLOR = { intro: "#b4c9a8", prologo: "#b4c9a8", mappe: "#9cba84", leggende: "#a08ac0", archivio: "#c9b27a", giochi: "#93b6cb", oracolo: "#c9a0dc" };
 
 /** which journey for which path */
 export function pickTransition(from, to, { hasHero, quick, origin }) {

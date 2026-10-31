@@ -283,3 +283,6 @@ guard(()=>{
 /* graphics quality (landing valley, page sky): auto / high / medium / low, saved in this browser */
 guard(()=>{const sel=$("#gfx");if(!sel)return;let v="auto";try{v=JSON.parse(localStorage.getItem("moe.quality.v1"))||"auto"}catch(e){}sel.value=v;
   sel.onchange=()=>{try{localStorage.setItem("moe.quality.v1",JSON.stringify(sel.value))}catch(e){}location.reload()}});
+
+/* v11: short tales, random legend, special nights, keyboard help, progress tools, sources, the Sibyl’s Oracle (src/ui/more.js) */
+guard(()=>UI()&&UI().initMore&&UI().initMore());

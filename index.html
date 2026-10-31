@@ -9,11 +9,21 @@
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Mysteries of Europe">
+<meta property="og:title" content="Mysteries of Europe — where the map ends, the legends begin">
+<meta property="og:description" content="An interactive archive of the dark legends of Europe: a real map, a 3D globe, six 3D adventures, collectible relics and the Sibyl’s Oracle.">
+<meta property="og:url" content="https://polary681.github.io/Mysteries-of-Europe/">
+<meta property="og:image" content="https://polary681.github.io/Mysteries-of-Europe/assets/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
 <script>document.documentElement.classList.add("js")</script>
 <link rel="stylesheet" href="css/style.css">
 <link rel="stylesheet" href="css/cinematic.css">
 <link rel="stylesheet" href="css/world.css">
 <link rel="stylesheet" href="css/archivist.css">
+<link rel="stylesheet" href="css/more.css">
 </head>
 <body>
 <a class="skip-link" href="#mappe">Skip to the content</a>
@@ -26,6 +36,7 @@
     <a href="#leggende">Legends</a>
     <a href="#archivio">Archive</a>
     <a href="#giochi">3D Mini-games</a>
+    <a href="#oracolo">Oracle</a>
     <span class="snd" role="group" aria-label="Ambient sound">
       <button class="snd-b" id="snd" type="button" aria-pressed="false" aria-label="Ambient sound: off. Press to turn on."><svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 9v6h4l5 4V5L8 9z"/><path class="w1" d="M16.5 9a4.2 4.2 0 0 1 0 6"/><path class="w2" d="M19 6.5a8 8 0 0 1 0 11"/></svg><span class="snd-t">Sound off</span></button>
       <input id="vol" type="range" min="0" max="100" step="5" value="40" aria-label="Ambient volume">
@@ -126,6 +137,12 @@
       <span class="gbtns"><button class="ghost" id="gmute" aria-pressed="false">🔊 Sound on</button><button class="ghost" id="gfull">⛶ Fullscreen</button></span>
     </div>
   </div>
+</section>
+<section id="oracolo" class="wrap block">
+  <p class="kicker rv">Chapter V</p>
+  <h2 class="rv">The Sibyl’s Oracle</h2>
+  <p class="sub rv">Beneath Monte Sibilla, they say, a queen still reads the fate of travellers. Ask her a question in silence, or write it below, then draw three cards: what was, what is, what will be. The deck is made of our legends and the creatures of the Bestiary.</p>
+  <div id="oracle" class="oracle rv"><noscript><p class="note">JavaScript is needed for the Oracle.</p></noscript></div>
 </section>
 </main>
 

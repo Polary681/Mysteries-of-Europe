@@ -19,7 +19,7 @@
 import { createRun } from "./timeline.js";
 import { TRANSITIONS, pickTransition } from "./transitions.js";
 
-export const SECTIONS = ["intro", "prologo", "mappe", "leggende", "archivio", "giochi"];
+export const SECTIONS = ["intro", "prologo", "mappe", "leggende", "archivio", "giochi", "oracolo"];
 const reduce = () => matchMedia("(prefers-reduced-motion: reduce)").matches;
 const SPEED = (() => { try { const v = +new URLSearchParams(location.search).get("navspeed"); return v > 0 ? v : 1; } catch (e) { return 1; } })();   // ?navspeed=0.25 slows every journey (to study it)
 
