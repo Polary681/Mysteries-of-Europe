@@ -76,8 +76,7 @@ export function nameLabel(text, { color = "#fff", bg = "rgba(6,8,30,.7)" } = {})
 export class Colliders {
   constructor() { this.c = []; this.b = []; }
   circle(x, z, r, tag) { const o = { x, z, r, tag, on: true }; this.c.push(o); return o; }
-  /** top: world height of the obstacle's top (for camera checks; the player is blocked whatever it is) */
-  box(x0, z0, x1, z1, tag, top = Infinity) { const o = { x0, z0, x1, z1, tag, top, on: true }; this.b.push(o); return o; }
+  box(x0, z0, x1, z1, tag) { const o = { x0, z0, x1, z1, tag, on: true }; this.b.push(o); return o; }
   resolve(p, r) {
     for (const c of this.c) { if (!c.on) continue; const dx = p.x - c.x, dz = p.z - c.z, rr = c.r + r, d2 = dx * dx + dz * dz; if (d2 < rr * rr) { const d = Math.sqrt(d2) || 1e-4; p.x = c.x + dx / d * rr; p.z = c.z + dz / d * rr; } }
     for (const b of this.b) {

@@ -387,7 +387,7 @@ export function start(host, { onExit = () => {}, onText = null } = {}) {
     if (!q) { if (!holdShot) cam.clearShot(); return; }
     const portrait = stage.camera.aspect < 0.9, dx = q.x - p.x, dz = q.z - p.z, d = Math.hypot(dx, dz) || 1, ux = dx / d, uz = dz / d, rx = -uz, rz = ux, isE = who === "elizabeth", back = (isE ? 2.3 : 2.9) + (portrait ? 1.4 : 0), side = (portrait ? 2.2 : 1.5) + (isE ? 0.5 : 0);
     let pos = null;
-    for (const [b, sd] of [[back, side], [back, -side], [back * 0.55, side * 0.6], [1.1, -0.9]]) { const x = p.x - ux * b + rx * sd, z = p.z - uz * b + rz * sd; const gy = Math.max(groundH(p.x, p.z), p.y); if (S.area === "inside" || segClear(p.x, p.z, x, z, gy + 1.95) >= 1) { pos = new Vector3(x, gy + 1.95, z); break; } }
+    for (const [b, sd] of [[back, side], [back, -side], [back * 0.55, side * 0.6], [1.1, -0.9]]) { const x = p.x - ux * b + rx * sd, z = p.z - uz * b + rz * sd; if (S.area === "inside" || segClear(p.x, p.z, x, z) >= 1) { pos = new Vector3(x, Math.max(groundH(p.x, p.z), p.y) + 1.95, z); break; } }
     if (!pos) pos = new Vector3(p.x - ux * 0.6, Math.max(groundH(p.x, p.z), p.y) + 2.1, p.z - uz * 0.6);
     clampToRoom(pos);
     cam.setShot({ pos, look: new Vector3(q.x * 0.8 + p.x * 0.2, q.y + hh * 0.95, q.z * 0.8 + p.z * 0.2), fov: who === "elizabeth" ? 42 : 46 });
@@ -506,19 +506,13 @@ export function start(host, { onExit = () => {}, onText = null } = {}) {
     v.x = clamp(v.x, I.x + r[0] + m, I.x + r[1] - m); v.z = clamp(v.z, I.z + r[2] + m, I.z + r[3] - m); v.y = clamp(v.y, 0.6, r[4] - 0.35); return v;
   }
 
-  /** outdoors: true where the camera must not be (inside a house, beyond the walls of the upper castle) */
-  //  y: the camera's height. Obstacles lower than the camera (market stalls) don't block it: it flies over them.
-  //  Before, every box counted as an endless wall and the camera snapped onto the player's head beside a stall.
-  function camBlocked(x, z, y = -Infinity) {
-    for (const b of col.b) if (b.on && y < b.top + 0.3 && x > b.x0 - 0.3 && x < b.x1 + 0.3 && z > b.z0 - 0.3 && z < b.z1 + 0.3) return true;
+  /** outdoors: true where a conversation shot must not be placed (inside a house, beyond the walls of the upper castle).
+   *  While walking the camera has no collisions (as in the other adventures): it is only kept above the ground. */
+  function camBlocked(x, z) {
+    for (const b of col.b) if (b.on && x > b.x0 - 0.3 && x < b.x1 + 0.3 && z > b.z0 - 0.3 && z < b.z1 + 0.3) return true;
     return z < -101.5 && !walkable(x, z, {});
   }
-  const segClear = (ax, az, bx, bz, y = -Infinity) => { const n = Math.max(2, Math.ceil(Math.hypot(bx - ax, bz - az) / 0.25)); for (let i = 1; i <= n; i++) if (camBlocked(ax + (bx - ax) * i / n, az + (bz - az) * i / n, y)) return (i - 1.5) / n; return 1; };
-  function pullCam(p) {
-    const c = cam.pos, k = segClear(p.x, p.z, c.x, c.z, c.y); if (k >= 1) return;
-    const f = Math.max(0.1, k); c.x = p.x + (c.x - p.x) * f; c.z = p.z + (c.z - p.z) * f; c.y = Math.max(c.y, groundH(c.x, c.z) + 0.6);
-    stage.camera.position.copy(c); stage.camera.lookAt(cam.look);
-  }
+  const segClear = (ax, az, bx, bz) => { const n = Math.max(2, Math.ceil(Math.hypot(bx - ax, bz - az) / 0.25)); for (let i = 1; i <= n; i++) if (camBlocked(ax + (bx - ax) * i / n, az + (bz - az) * i / n)) return (i - 1.5) / n; return 1; };
 
   /** inside: shorten the camera arm so that it stays in the room (instead of sliding along the wall over the player's head) */
   function pullInRoom(p) {
@@ -567,7 +561,6 @@ export function start(host, { onExit = () => {}, onText = null } = {}) {
     cam.dist += ((ins ? (room === "passage" || room === "niche" || room === "corrW" || room === "gallery" ? 2.6 : 3.6) : 5.2) - cam.dist) * Math.min(1, dt * 3);
     cam.update(rawDt, { x: pp.x, y: pp.y, z: pp.z });
     if (ins && !cam.shot) { pullInRoom(pp); clampToRoom(cam.pos); stage.camera.position.copy(cam.pos); stage.camera.lookAt(cam.look); }   // the camera never leaves the room you are in
-    else if (!ins && !cam.shot) pullCam(pp);   // …and outdoors it never ends up inside a house or outside the castle walls
     sky.follow(stage.camera);
     updatePrompt();
     saveTimer += rawDt; if (saveTimer > 25) { saveTimer = 0; if (!talking) persist(); }
