@@ -2,6 +2,16 @@
 
 Newest first. See README.md for how to run and rebuild the site.
 
+## v11.2 — small comforts (nothing was removed)
+
+- **Reading thread**: a thin violet-to-gold line under the top edge shows how far down the page you are.
+- **Back to the top**: a round button appears bottom-right once you scroll past the landing; also the `T` key.
+- **Random legend from the keyboard**: press `R` (both keys are listed in the `?` panel and ignored while typing, inside an adventure or with a window open).
+- **Welcome back**: returning after at least a day shows a short note (“Your last visit was 5 days ago; this is visit number 4”). Stored in `moe.visits.v1`.
+- **Read aloud** in the short-story window (Web Speech API, British English voice when available); stops when you choose, turn the page or close.
+- **Next uncanny night** in the footer: the countdown to the next special night (Samhain, All Saints, All Souls, Walpurgis, St John’s Eve), or “Tonight is …”.
+- Code: `src/ui/little.js`, styles at the end of `css/more.css`, wired in `js/main.js` after `initMore()`. Checked in headless Chromium (`file://`): no console errors.
+
 ## v11 — small additions and the Sibyl’s Oracle (nothing was removed)
 
 - **The Sibyl’s Oracle** (Chapter V, `#oracolo`): a three-card reading (what was / what is / what will be) drawn from the six legends and the Bestiary; cards can come up reversed; legends you completed glow as “Known to you”; the same question gets the same answer for the whole day; soft chimes when the sound is on; copy the prophecy. `src/ui/more.js`, `css/more.css`.

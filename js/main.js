@@ -286,3 +286,4 @@ guard(()=>{const sel=$("#gfx");if(!sel)return;let v="auto";try{v=JSON.parse(loca
 
 /* v11: short tales, random legend, special nights, keyboard help, progress tools, sources, the Sibyl’s Oracle (src/ui/more.js) */
 guard(()=>UI()&&UI().initMore&&UI().initMore());
+guard(()=>UI()&&UI().initLittle&&UI().initLittle());

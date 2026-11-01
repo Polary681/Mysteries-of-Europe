@@ -61,7 +61,7 @@ function initRandom() {
 }
 
 /* ---------- SPECIAL NIGHTS (real date; test with ?date=10-31) ---------- */
-const NIGHTS = {
+export const NIGHTS = {
   "10-31": ["Samhain · All Hallows’ Eve", "In the old Celtic year, summer ends tonight and the dead walk close to the living. Leave a light in the window."],
   "11-1": ["All Saints · the night after Samhain", "The veil is closing again. Whatever crossed over last night has until dawn to find its way back."],
   "11-2": ["All Souls’ Day", "Across Europe, candles are lit on the graves tonight. The Archive lights one too."],
@@ -78,7 +78,7 @@ function initNights() {
 
 /* ---------- KEYBOARD HELP ---------- */
 const KEYS = [["Anywhere", [["?", "Show this list"], ["Esc", "Close a window or leave a legend"], ["Tab", "Move between links and buttons"]]],
-  ["Legends & Archive", [["B", "Bookmark the focused legend card"], ["← →", "Turn the pages of the Traveller’s Journal"]]],
+  ["Legends & Archive", [["R", "Open a random legend"], ["T", "Back to the top"], ["B", "Bookmark the focused legend card"], ["← →", "Turn the pages of the Traveller’s Journal"]]],
   ["3D adventures", [["W A S D / arrows", "Move (Shift to run)"], ["E / Space", "Interact, talk, next line"], ["1–4", "Choose an answer"], ["J / Tab", "Journal, codex and hints"], ["L (hold)", "Listen (Skye)"], ["M", "Mute"], ["Esc", "Pause"]]]];
 function openKeys() {
   if ($("dialog.mx-keys")) return;

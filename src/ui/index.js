@@ -18,3 +18,4 @@ export { setTarget as compassTarget } from "./compass.js";
 export { initHeroQuote, nextQuote } from "./quotes.js";
 export { _meter as _ambMeter, _force as _ambForce, _render as _ambRender } from "./ambient.js";
 export { initMore } from "./more.js";
+export { initLittle, visitNote, nextNight } from "./little.js";
